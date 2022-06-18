@@ -46,6 +46,10 @@ RangeSlider::RangeSlider(Qt::Orientation ori, Options t, QWidget* aParent)
     setMouseTracking(true);
 }
 
+void RangeSlider::SetOption(Options t){
+    this->type=t;
+}
+
 void RangeSlider::paintEvent(QPaintEvent* aEvent)
 {
     Q_UNUSED(aEvent);
@@ -60,14 +64,14 @@ void RangeSlider::paintEvent(QPaintEvent* aEvent)
 
     QPen pen(Qt::gray, 0.8);
     painter.setPen(pen);
-    painter.setRenderHint(QPainter::Qt4CompatiblePainting);
+    // painter.setRenderHint(QPainter::Qt4CompatiblePainting); // No longer supported on Qt6
     QBrush backgroundBrush(QColor(0xD0, 0xD0, 0xD0));
     painter.setBrush(backgroundBrush);
     painter.drawRoundedRect(backgroundRect, 1, 1);
 
     // First value handle rect
     pen.setColor(Qt::darkGray);
-    pen.setWidth(0.5);
+    pen.setWidthF(0.5);
     painter.setPen(pen);
     painter.setRenderHint(QPainter::Antialiasing);
     QBrush handleBrush(QColor(0xFA, 0xFA, 0xFA));

@@ -21,6 +21,8 @@ public:
     RangeSlider( QWidget* aParent = Q_NULLPTR);
     RangeSlider( Qt::Orientation ori, Options t = DoubleHandles, QWidget* aParent = Q_NULLPTR);
 
+    void SetOption(Options t);
+
     QSize minimumSizeHint() const override;
 
     int GetMinimun() const;
