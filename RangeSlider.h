@@ -52,7 +52,9 @@ protected:
 
 signals:
     void lowerValueChanged(int aLowerValue);
+    void lowerValueSliderMoved(int aLowerValue);
     void upperValueChanged(int aUpperValue);
+    void upperValueSliderMoved(int aUpperValue);
     void rangeChanged(int aMin, int aMax);
 
 public slots:
@@ -79,6 +81,9 @@ private:
     QColor mBackgroudColor;
     Qt::Orientation orientation;
     Options type;
+
+    void moveLowerValueSlider(int aLowerValue);
+    void moveUpperValueSlider(int aUpperValue);
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(RangeSlider::Options)
